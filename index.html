@@ -1,0 +1,992 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>交换生指南 | 明知大学</title>
+<meta name="description" content="明知大学交换生指南中文版首页，包含行前准备、学业、校园生活、文化活动与在韩生活五个栏目的入口。" />
+<style>
+  /* ── 设计令牌：取自 Material 设计系统（Google Sites 观感），仅在此处定义颜色 ── */
+  :root {
+    --brand:        #1a73e8;
+    --brand-strong: #1558b0;
+    --brand-soft:   #e8f0fe;
+    --ink:          #202124;
+    --ink-soft:     #5f6368;
+    --line:         #dadce0;
+    --bg:           #ffffff;
+    --bg-alt:       #f8f9fa;
+    --footer-bg:    #f1f3f4;
+    --radius:       8px;
+    --radius-lg:    12px;
+    --shadow-1:     0 1px 2px rgba(60,64,67,.16), 0 1px 3px rgba(60,64,67,.08);
+    --shadow-2:     0 1px 3px rgba(60,64,67,.16), 0 4px 12px rgba(60,64,67,.12);
+    --font: "Google Sans", "Roboto", "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Microsoft JhengHei", -apple-system, system-ui, sans-serif;
+    --header-h: 64px;
+    --container: 1280px;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font);
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  body.no-scroll { overflow: hidden; }
+  img, svg { display: block; max-width: 100%; }
+  [hidden] { display: none !important; }
+  a { color: var(--brand); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  h1, h2, h3 { margin: 0; font-weight: 500; line-height: 1.35; letter-spacing: 0; }
+  p { margin: 0; text-wrap: pretty; }
+  button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+  .container { max-width: var(--container); margin-inline: auto; padding-inline: 24px; }
+  :focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+
+  /* ── 顶栏（对应 Google Sites 顶部工具条） ─────────────────────── */
+  .sitetools {
+    border-bottom: 1px solid var(--line);
+    background: var(--bg);
+    position: sticky; top: 0; z-index: 40;
+  }
+  .sitetools-inner { display: flex; align-items: center; gap: 16px; height: 40px; }
+  .sitetools-spacer { flex: 1 1 auto; }
+  .sitetools-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 6px 10px; border-radius: 6px;
+    font-size: 13px; color: var(--ink-soft);
+  }
+  .sitetools-btn:hover { background: var(--bg-alt); color: var(--ink); text-decoration: none; }
+  .sitetools-btn svg { width: 16px; height: 16px; }
+
+  /* ── 页头：站名 + 主菜单 ─────────────────────────────────────── */
+  .sitehead { border-bottom: 1px solid var(--line); background: var(--bg); position: relative; z-index: 30; }
+  .sitehead-inner { display: flex; align-items: center; gap: 20px; min-height: var(--header-h); }
+  .brand { display: flex; align-items: center; gap: 12px; padding-block: 10px; }
+  .brand:hover { text-decoration: none; }
+  .brand-mark {
+    width: 36px; height: 36px; flex: 0 0 36px;
+    border-radius: 50%;
+    background: var(--brand); color: #fff;
+    display: grid; place-items: center;
+    font-size: 13px; font-weight: 700; letter-spacing: .02em;
+  }
+  .brand-text { display: flex; flex-direction: column; }
+  .brand-name { font-size: 20px; font-weight: 500; color: var(--ink); line-height: 1.3; }
+  .brand-sub { font-size: 12px; color: var(--ink-soft); line-height: 1.3; }
+  .navtoggle {
+    margin-left: auto;
+    display: none; align-items: center; gap: 8px;
+    padding: 8px 12px; border-radius: 6px; font-size: 14px; color: var(--ink);
+  }
+  .navtoggle:hover { background: var(--bg-alt); }
+  .navtoggle svg { width: 18px; height: 18px; }
+
+  .mainnav { margin-left: auto; display: flex; align-items: stretch; }
+  .mainnav-item { position: relative; }
+  .mainnav-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 21px 14px;
+    font-size: 14px; font-weight: 500; text-transform: uppercase; letter-spacing: .04em;
+    color: var(--ink-soft); white-space: nowrap;
+    border-bottom: 3px solid transparent;
+  }
+  .mainnav-link:hover { color: var(--ink); background: var(--bg-alt); text-decoration: none; }
+  .mainnav-link svg { width: 14px; height: 14px; transition: transform .18s ease; }
+  .mainnav-item.is-open > .mainnav-link,
+  .mainnav-item:focus-within > .mainnav-link {
+    color: var(--brand-strong); border-bottom-color: var(--brand); background: var(--brand-soft);
+  }
+  .mainnav-item.is-open > .mainnav-link svg,
+  .mainnav-item:focus-within > .mainnav-link svg { transform: rotate(180deg); }
+  .dropdown {
+    position: absolute; top: 100%; left: 0; min-width: 288px;
+    padding: 8px 0;
+    background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius);
+    box-shadow: var(--shadow-2);
+    display: none; z-index: 20;
+  }
+  .mainnav-item.is-open > .dropdown,
+  .mainnav-item:focus-within > .dropdown { display: block; }
+  .dropdown a {
+    display: block; padding: 10px 20px;
+    font-size: 14px; color: var(--ink);
+  }
+  .dropdown a:hover { background: var(--bg-alt); text-decoration: none; }
+  .dropdown .dd-group-label {
+    padding: 8px 20px 4px; font-size: 12px; letter-spacing: .06em;
+    text-transform: uppercase; color: var(--ink-soft);
+  }
+  .dropdown hr { border: 0; border-top: 1px solid var(--line); margin: 6px 0; }
+
+  /* ── 移动端抽屉 ─────────────────────────────────────────────── */
+  .drawer-scrim { position: fixed; inset: 0; background: rgba(32,33,36,.5); z-index: 60; }
+  .drawer-scrim.is-open { display: block; }
+  .drawer {
+    position: fixed; top: 0; right: 0; bottom: 0; z-index: 70;
+    width: min(86vw, 340px);
+    background: var(--bg); box-shadow: var(--shadow-2);
+    transform: translateX(100%); transition: transform .22s ease;
+    overflow-y: auto; padding-bottom: 24px;
+  }
+  .drawer.is-open { transform: translateX(0); }
+  .drawer-head { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; border-bottom: 1px solid var(--line); }
+  .drawer-head span { font-size: 15px; font-weight: 500; }
+  .drawer-close { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--ink-soft); padding: 6px 8px; border-radius: 6px; }
+  .drawer-close:hover { background: var(--bg-alt); }
+  .drawer-close svg { width: 16px; height: 16px; }
+  .drawer-home { display: block; padding: 14px 16px; font-size: 15px; text-transform: uppercase; letter-spacing: .05em; font-weight: 500; color: var(--ink); border-bottom: 1px solid var(--line); }
+  .drawer-home:hover { background: var(--bg-alt); text-decoration: none; }
+  .drawer-group {
+    width: 100%; display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 16px; font-size: 15px; text-transform: uppercase; letter-spacing: .05em;
+    font-weight: 500; color: var(--ink); border-bottom: 1px solid var(--line); text-align: left;
+  }
+  .drawer-group:hover { background: var(--bg-alt); }
+  .drawer-group svg { width: 16px; height: 16px; color: var(--ink-soft); transition: transform .18s ease; }
+  .drawer-group[aria-expanded="true"] svg { transform: rotate(180deg); }
+  .drawer-sub { display: none; border-bottom: 1px solid var(--line); background: var(--bg-alt); }
+  .drawer-sub.is-open { display: block; }
+  .drawer-sub a { display: block; padding: 11px 16px 11px 28px; font-size: 14px; color: var(--ink); }
+  .drawer-sub a:hover { background: #eef1f4; text-decoration: none; }
+
+  /* ── 横幅：对应原站首页顶部大图，图片位置留给编辑者替换 ────────────── */
+  .banner { position: relative; }
+  .banner-media {
+    min-height: clamp(220px, 30vw, 400px);
+    display: grid; place-items: center;
+    padding: 24px;
+    background: repeating-linear-gradient(135deg, #eceff1 0 14px, #e4e7ea 14px 28px);
+    border-bottom: 1px solid var(--line);
+  }
+  .banner-media .media-note {
+    padding: 6px 14px;
+    background: rgba(255,255,255,.88);
+    border: 1px dashed var(--line);
+    border-radius: 999px;
+    font-size: 13px; letter-spacing: .04em; color: var(--ink-soft);
+  }
+  .banner-plate { background: var(--ink); color: #fff; padding: clamp(28px, 4vw, 48px) 0; }
+  .banner-inner { max-width: 900px; }
+  .banner-plate h1 { margin: 10px 0 0; font-size: clamp(28px, 4.2vw, 46px); font-weight: 500; color: #fff; }
+  .banner-kicker { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.72); }
+  .banner-sub { margin-top: 12px; font-size: clamp(16px, 1.6vw, 20px); color: rgba(255,255,255,.88); }
+  .banner-actions { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 12px; }
+  .banner-actions .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 10px 20px; border-radius: 6px; border: 1px solid transparent;
+    font-size: 14px; font-weight: 500;
+  }
+  .banner-actions .btn-primary { background: var(--brand); color: #fff; border-color: var(--brand); }
+  .banner-actions .btn-primary:hover { background: var(--brand-strong); text-decoration: none; }
+  .banner-actions .btn-outline { background: transparent; color: #fff; border-color: rgba(255,255,255,.62); }
+  .banner-actions .btn-outline:hover { background: rgba(255,255,255,.14); text-decoration: none; }
+
+  /* ── 内容区 ─────────────────────────────────────────────────── */
+  .section { padding-block: clamp(44px, 6vw, 72px); }
+  .section-head { margin-bottom: 20px; }
+  .section-en {
+    font-size: 12px; letter-spacing: .1em; text-transform: uppercase;
+    color: var(--ink-soft); margin-bottom: 6px;
+  }
+  .section h2 { font-size: clamp(22px, 2.4vw, 30px); }
+  .section-sub { margin-top: 10px; color: var(--ink-soft); max-width: 70ch; }
+
+  .media-box {
+    position: relative;
+    background: #202124; border-radius: var(--radius-lg);
+    aspect-ratio: 16 / 9;
+    display: grid; place-content: center; gap: 12px;
+    color: rgba(255,255,255,.78); text-align: center; overflow: hidden;
+  }
+  .media-box.is-wide { aspect-ratio: 16 / 9; }
+  .media-play {
+    width: 66px; height: 66px; margin-inline: auto;
+    border-radius: 50%; background: rgba(255,255,255,.94); color: #202124;
+    display: grid; place-items: center; box-shadow: var(--shadow-1);
+  }
+  .media-play svg { width: 28px; height: 28px; }
+  .media-caption { font-size: 13px; letter-spacing: .04em; }
+
+  .editpad {
+    border: 1px dashed var(--line);
+    border-left: 3px solid var(--brand);
+    border-radius: var(--radius);
+    background: var(--bg-alt);
+    padding: 20px 22px;
+  }
+  .editpad h3 { font-size: 16px; font-weight: 500; }
+  .editpad p { margin-top: 8px; font-size: 14px; color: var(--ink-soft); }
+  .chip-list { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip {
+    display: inline-flex; align-items: center;
+    margin-top: 12px; padding: 4px 12px; border-radius: 999px;
+    background: var(--brand-soft); color: var(--brand-strong);
+    font-size: 12px; letter-spacing: .04em;
+  }
+
+  /* ── 链接卡片网格 ─────────────────────────────────────────── */
+  .card-grid { display: grid; gap: 20px; }
+  .cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .linkcard {
+    display: flex; flex-direction: column;
+    border: 1px solid var(--line); border-radius: var(--radius-lg);
+    background: var(--bg); padding: 22px;
+    transition: box-shadow .18s ease, transform .18s ease, border-color .18s ease;
+  }
+  .linkcard:hover {
+    box-shadow: var(--shadow-2); border-color: transparent;
+    transform: translateY(-2px); text-decoration: none;
+  }
+  .linkcard-mark {
+    width: 40px; height: 40px; margin-bottom: 14px;
+    border-radius: 10px; background: var(--brand-soft); color: var(--brand-strong);
+    display: grid; place-items: center;
+  }
+  .linkcard-mark svg { width: 20px; height: 20px; }
+  .linkcard h3 { font-size: 17px; font-weight: 500; color: var(--ink); }
+  .linkcard p { margin-top: 8px; font-size: 14px; color: var(--ink-soft); }
+  .linkcard-url { margin-top: 14px; font-size: 12px; color: var(--brand-strong); }
+
+  .notice {
+    display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: 14px;
+    background: var(--brand-soft); border-radius: var(--radius-lg); padding: 20px 22px;
+  }
+  .notice svg { width: 22px; height: 22px; color: var(--brand-strong); margin-top: 2px; }
+  .notice h3 { font-size: 16px; font-weight: 500; color: var(--brand-strong); }
+  .notice p { margin-top: 6px; font-size: 14px; color: #3b4252; }
+
+  /* ── 快速访问（源站首页的 QUICK ACCESS 网格） ─────────────── */
+  .quick { background: var(--bg-alt); border-block: 1px solid var(--line); }
+  .quick-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 18px; }
+  .quick-head h2 { font-size: clamp(20px, 2.2vw, 26px); }
+  .quick-head .section-en { margin-bottom: 0; }
+  .quick-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; }
+  .quick-item {
+    display: block; padding: 18px 16px;
+    background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius);
+    color: var(--ink); transition: box-shadow .18s ease, transform .18s ease;
+  }
+  .quick-item:hover { box-shadow: var(--shadow-1); transform: translateY(-2px); text-decoration: none; }
+  .quick-item svg { width: 22px; height: 22px; color: var(--brand); margin-bottom: 10px; }
+  .quick-item span { display: block; font-size: 15px; font-weight: 500; }
+  .quick-item small { display: block; margin-top: 4px; font-size: 12px; color: var(--ink-soft); }
+
+  .campus-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+  .campus-card {
+    border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden;
+    display: flex; flex-direction: column;
+  }
+  .campus-card .media-box { border-radius: 0; aspect-ratio: 16 / 9; }
+  .campus-body { padding: 20px 22px 22px; }
+  .campus-card h3 { font-size: 18px; font-weight: 500; }
+  .campus-card p { margin-top: 8px; font-size: 14px; color: var(--ink-soft); }
+
+  /* ── 信息表 ────────────────────────────────────────────────── */
+  .info-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .info-table th, .info-table td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--line); vertical-align: top; }
+  .info-table th { width: 30%; font-weight: 500; color: var(--ink-soft); background: var(--bg-alt); }
+  .info-table td { color: var(--ink); }
+  .table-wrap { border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; }
+
+  /* ── 待补充字段提示（正式发布前删除） ───────────────────────── */
+  .edit-note {
+    margin-top: 28px; padding: 20px 22px;
+    border: 1px dashed var(--line); border-radius: var(--radius-lg);
+    background: var(--bg-alt);
+  }
+  .edit-note h3 { font-size: 15px; font-weight: 500; }
+  .edit-note ul { margin: 10px 0 0; padding-left: 20px; font-size: 14px; color: var(--ink-soft); }
+  .edit-note li { margin-top: 6px; }
+  .edit-note code {
+    font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+    font-size: 12px; background: #eef1f4; padding: 1px 6px; border-radius: 4px;
+  }
+
+  /* ── 页脚 ──────────────────────────────────────────────────── */
+  .pagefoot { background: var(--footer-bg); border-top: 1px solid var(--line); padding-block: 44px 36px; font-size: 13px; color: var(--ink-soft); }
+  .foot-top { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; padding-bottom: 20px; border-bottom: 1px solid var(--line); }
+  .foot-top .brand { padding-block: 0; }
+  .foot-links { display: flex; gap: 14px; flex-wrap: wrap; }
+  .foot-links a { font-size: 13px; }
+  .foot-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; padding-top: 24px; }
+  .foot-grid h3 { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink); font-weight: 500; }
+  .foot-grid p { margin-top: 8px; line-height: 1.65; }
+  .foot-bottom { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .foot-bottom a { font-size: 13px; }
+
+  /* ── 响应式 ───────────────────────────────────────────────── */
+  @media (max-width: 1180px) {
+    .mainnav-link { padding-inline: 11px; font-size: 13px; }
+    .quick-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  }
+  @media (max-width: 980px) {
+    .mainnav { display: none; }
+    .navtoggle { display: inline-flex; }
+    .cols-3, .cols-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .foot-grid { grid-template-columns: 1fr; gap: 22px; }
+  }
+  @media (max-width: 720px) {
+    .cols-2, .cols-3, .cols-4 { grid-template-columns: 1fr; }
+    .quick-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .campus-grid { grid-template-columns: 1fr; }
+    .banner { padding: 52px 0 44px; }
+    .info-table th { width: 40%; }
+  }
+  @media (max-width: 420px) {
+    .quick-grid { grid-template-columns: 1fr; }
+  }
+
+  .visually-hidden {
+    position: absolute; width: 1px; height: 1px; margin: -1px;
+    padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+  }
+</style>
+</head>
+<body>
+<a class="visually-hidden" href="#main">跳到主要内容</a>
+
+<!-- 顶部工具条：对应源站 Google Sites 顶部的“搜索此站点 / 嵌入文件”栏 -->
+<div class="sitetools" data-od-id="site-tools">
+  <div class="container sitetools-inner">
+    <button class="sitetools-btn" type="button" data-search-btn>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M16.5 16.5 21 21"></path></svg>
+      搜索此站点
+    </button>
+    <span class="sitetools-spacer"></span>
+    <button class="sitetools-btn" type="button" data-files-btn>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+      嵌入文件
+    </button>
+    <p class="visually-hidden" data-tools-hint></p>
+  </div>
+</div>
+
+<!-- 页头：站名与主菜单（保留源站英文大写栏目名，作为英文原站链接） -->
+<header class="sitehead" data-od-id="site-header">
+  <div class="container sitehead-inner">
+    <a class="brand" href="#main">
+      <span class="brand-mark" aria-hidden="true">MJU</span>
+      <span class="brand-text">
+        <span class="brand-name">交换生指南</span>
+        <span class="brand-sub">明知大学 · Exchange Student Guide</span>
+      </span>
+      <span class="visually-hidden">返回本页顶部</span>
+    </a>
+    <button class="navtoggle" type="button" data-nav-open aria-expanded="false" aria-controls="navDrawer">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18"></path><path d="M3 12h18"></path><path d="M3 18h18"></path></svg>
+      菜单
+    </button>
+
+    <nav class="mainnav" aria-label="主导航">
+      <div class="mainnav-item">
+        <a class="mainnav-link" href="#main">首页</a>
+      </div>
+
+      <div class="mainnav-item">
+        <a class="mainnav-link" href="https://sites.google.com/mju.ac.kr/exchange-guide/before-arrivial/admission" target="_blank" rel="noopener">
+          行前准备
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>
+        </a>
+        <div class="dropdown">
+          <p class="dd-group-label">Admission 入学手续</p>
+          <a href="https://sites.google.com/mju.ac.kr/exchange-guide/before-arrivial/admission/visa-checklist" target="_blank" rel="noopener">签证核对清单</a>
+          <a href="https://sites.google.com/mju.ac.kr/exchange-guide/before-arrivial/admission/exchange-student-visa" target="_blank" rel="noopener">交换生签证</a>
+          <a href="https://sites.google.com/mju.ac.kr/exchange-guide/before-arrivial/admission/visa-info" target="_blank" rel="noopener">签证信息</a>
+          <hr />
+          <a href="https://sites.google.com/mju.ac.kr/exchange-guide/before-arrivial/housing" target="_blank" rel="noopener">住宿</a>
+          <a href="https://sites.google.com/mju.ac.kr/exchange-guide/before-arrivial/nhis-national-health-insurance" target="_blank" rel="noopener">国民健康保险（NHIS）</a>
+        </div>
+      </div>
+
+      <div class="mainnav-item">
+        <a class="mainnav-link" href="https://sites.google.com/mju.ac.kr/exchange-guide/academics/academic-calendar" target="_blank" rel="noopener">
+          学业
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>
+        </a>
+        <div class="dropdown">
+          <a href="https://sites.google.com/mju.ac.kr/exchange-guide/academics/academic-calendar" target="_blank" rel="noopener">行事历</a>
+          <a href="https://sites.google.com/mju.ac.kr/exchange-guide/academics/msisyllabustimetable" target="_blank" rel="noopener">MSI（课程大纲与课表）</a>
+          <a href="https://sites.google.com/mju.ac.kr/exchange-guide/academics/gradins-credits" target="_blank" rel="noopener">成绩与学分</a>
+          <a href="https://sites.google.com/mju.ac.kr/exchange-guide/academics/syllabus26-fall" target="_blank" rel="noopener">课程大纲（26 秋季）</a>
+          <a href="https://sites.google.com/mju.ac.kr/exchange-guide/academics/course-registration" target="_blank" rel="noopener">选课流程</a>
+          <a href="https://sites.google.com/mju.ac.kr/exchange-guide/academics/course-list" target="_blank" rel="noopener">课程列表</a>
+          <a href="https://sites.google.com/mju.ac.kr/exchange-guide/academics/mju-essential-app-sites" target="_blank" rel="noopener">MJU 常用 App 与网站</a>
+          <a href="https://sites.google.com/mju.ac.kr/exchange-guide/academics/national-holidays" target="_blank" rel="noopener">法定假日</a>
+          <a href="https://sites.google.com/mju.ac.kr/exchange-guide/academics/klec" target="_blank" rel="noopener">KLEC 韩语中心</a>
+        </div>
+      </div>
+
+      <div class="mainnav-item">
+        <a class="mainnav-link" href="https://sites.google.com/mju.ac.kr/exchange-guide/campus-life/seoul-campus" target="_blank" rel="noopener">
+          校园生活
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>
+        </a>
+        <div class="dropdown">
+          <a href="https://sites.google.com/mju.ac.kr/exchange-guide/campus-life/seoul-campus" target="_blank" rel="noopener">首尔校区</a>
+          <a href="https://sites.google.com/mju.ac.kr/exchange-guide/campus-life/yongin-campus" target="_blank" rel="noopener">龙仁（自然科学校区）</a>
+          <a href="https://sites.google.com/mju.ac.kr/exchange-guide/campus-life/oulami" target="_blank" rel="noopener">OULAMI 同伴项目</a>
+          <a href="https://sites.google.com/mju.ac.kr/exchange-guide/campus-life/gli" target="_blank" rel="noopener">GLI 全球领导力项目</a>
+        </div>
+      </div>
+
+      <div class="mainnav-item">
+        <a class="mainnav-link" href="https://sites.google.com/mju.ac.kr/exchange-guide/cultural-activities" target="_blank" rel="noopener">
+          文化活动
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>
+        </a>
+        <div class="dropdown">
+          <a href="https://sites.google.com/mju.ac.kr/exchange-guide/cultural-activities/taekwondo" target="_blank" rel="noopener">跆拳道</a>
+          <a href="https://sites.google.com/mju.ac.kr/exchange-guide/cultural-activities/games-day" target="_blank" rel="noopener">运动游戏日</a>
+          <a href="https://sites.google.com/mju.ac.kr/exchange-guide/cultural-activities/korean-tutoring" target="_blank" rel="noopener">韩语辅导</a>
+        </div>
+      </div>
+
+      <div class="mainnav-item">
+        <a class="mainnav-link" href="https://sites.google.com/mju.ac.kr/exchange-guide/living-in-korea/rc-resident-card" target="_blank" rel="noopener">
+          在韩生活
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>
+        </a>
+        <div class="dropdown">
+          <a href="https://sites.google.com/mju.ac.kr/exchange-guide/living-in-korea/part-time-works" target="_blank" rel="noopener">兼职打工</a>
+          <a href="https://sites.google.com/mju.ac.kr/exchange-guide/living-in-korea/rc-resident-card" target="_blank" rel="noopener">外国人登录证（RC）</a>
+          <a href="https://sites.google.com/mju.ac.kr/exchange-guide/living-in-korea/immigration" target="_blank" rel="noopener">出入境事务</a>
+          <a href="https://sites.google.com/mju.ac.kr/exchange-guide/living-in-korea/emergency" target="_blank" rel="noopener">紧急联系</a>
+          <a href="https://sites.google.com/mju.ac.kr/exchange-guide/living-in-korea/apps" target="_blank" rel="noopener">常用 App</a>
+          <a href="https://sites.google.com/mju.ac.kr/exchange-guide/living-in-korea/transportation" target="_blank" rel="noopener">交通出行</a>
+          <a href="https://sites.google.com/mju.ac.kr/exchange-guide/living-in-korea/counseling-options-in-seoul" target="_blank" rel="noopener">首尔心理咨询资源</a>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- 移动端导航抽屉 -->
+<div class="drawer-scrim" data-drawer-scrim hidden></div>
+<aside class="drawer" id="navDrawer" data-drawer aria-hidden="true" aria-label="移动端导航">
+  <div class="drawer-head">
+    <span>菜单</span>
+    <button class="drawer-close" type="button" data-nav-close>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12"></path><path d="M18 6 6 18"></path></svg>
+      关闭
+    </button>
+  </div>
+  <a class="drawer-home" href="#main" data-nav-close>首页</a>
+
+  <button class="drawer-group" type="button" aria-expanded="false" aria-controls="dg-prep">行前准备
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>
+  </button>
+  <div class="drawer-sub" id="dg-prep">
+    <a href="https://sites.google.com/mju.ac.kr/exchange-guide/before-arrivial/admission" target="_blank" rel="noopener">入学手续</a>
+    <a href="https://sites.google.com/mju.ac.kr/exchange-guide/before-arrivial/admission/visa-checklist" target="_blank" rel="noopener">签证核对清单</a>
+    <a href="https://sites.google.com/mju.ac.kr/exchange-guide/before-arrivial/admission/exchange-student-visa" target="_blank" rel="noopener">交换生签证</a>
+    <a href="https://sites.google.com/mju.ac.kr/exchange-guide/before-arrivial/admission/visa-info" target="_blank" rel="noopener">签证信息</a>
+    <a href="https://sites.google.com/mju.ac.kr/exchange-guide/before-arrivial/housing" target="_blank" rel="noopener">住宿</a>
+    <a href="https://sites.google.com/mju.ac.kr/exchange-guide/before-arrivial/nhis-national-health-insurance" target="_blank" rel="noopener">国民健康保险（NHIS）</a>
+  </div>
+
+  <button class="drawer-group" type="button" aria-expanded="false" aria-controls="dg-study">学业
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>
+  </button>
+  <div class="drawer-sub" id="dg-study">
+    <a href="https://sites.google.com/mju.ac.kr/exchange-guide/academics/academic-calendar" target="_blank" rel="noopener">行事历</a>
+    <a href="https://sites.google.com/mju.ac.kr/exchange-guide/academics/msisyllabustimetable" target="_blank" rel="noopener">MSI（课程大纲与课表）</a>
+    <a href="https://sites.google.com/mju.ac.kr/exchange-guide/academics/gradins-credits" target="_blank" rel="noopener">成绩与学分</a>
+    <a href="https://sites.google.com/mju.ac.kr/exchange-guide/academics/syllabus26-fall" target="_blank" rel="noopener">课程大纲（26 秋季）</a>
+    <a href="https://sites.google.com/mju.ac.kr/exchange-guide/academics/course-registration" target="_blank" rel="noopener">选课流程</a>
+    <a href="https://sites.google.com/mju.ac.kr/exchange-guide/academics/course-list" target="_blank" rel="noopener">课程列表</a>
+    <a href="https://sites.google.com/mju.ac.kr/exchange-guide/academics/mju-essential-app-sites" target="_blank" rel="noopener">MJU 常用 App 与网站</a>
+    <a href="https://sites.google.com/mju.ac.kr/exchange-guide/academics/national-holidays" target="_blank" rel="noopener">法定假日</a>
+    <a href="https://sites.google.com/mju.ac.kr/exchange-guide/academics/klec" target="_blank" rel="noopener">KLEC 韩语中心</a>
+  </div>
+
+  <button class="drawer-group" type="button" aria-expanded="false" aria-controls="dg-campus">校园生活
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>
+  </button>
+  <div class="drawer-sub" id="dg-campus">
+    <a href="https://sites.google.com/mju.ac.kr/exchange-guide/campus-life/seoul-campus" target="_blank" rel="noopener">首尔校区</a>
+    <a href="https://sites.google.com/mju.ac.kr/exchange-guide/campus-life/yongin-campus" target="_blank" rel="noopener">龙仁（自然科学校区）</a>
+    <a href="https://sites.google.com/mju.ac.kr/exchange-guide/campus-life/oulami" target="_blank" rel="noopener">OULAMI 同伴项目</a>
+    <a href="https://sites.google.com/mju.ac.kr/exchange-guide/campus-life/gli" target="_blank" rel="noopener">GLI 全球领导力项目</a>
+  </div>
+
+  <button class="drawer-group" type="button" aria-expanded="false" aria-controls="dg-culture">文化活动
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>
+  </button>
+  <div class="drawer-sub" id="dg-culture">
+    <a href="https://sites.google.com/mju.ac.kr/exchange-guide/cultural-activities" target="_blank" rel="noopener">文化活动总览</a>
+    <a href="https://sites.google.com/mju.ac.kr/exchange-guide/cultural-activities/taekwondo" target="_blank" rel="noopener">跆拳道</a>
+    <a href="https://sites.google.com/mju.ac.kr/exchange-guide/cultural-activities/games-day" target="_blank" rel="noopener">运动游戏日</a>
+    <a href="https://sites.google.com/mju.ac.kr/exchange-guide/cultural-activities/korean-tutoring" target="_blank" rel="noopener">韩语辅导</a>
+  </div>
+
+  <button class="drawer-group" type="button" aria-expanded="false" aria-controls="dg-korea">在韩生活
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>
+  </button>
+  <div class="drawer-sub" id="dg-korea">
+    <a href="https://sites.google.com/mju.ac.kr/exchange-guide/living-in-korea/part-time-works" target="_blank" rel="noopener">兼职打工</a>
+    <a href="https://sites.google.com/mju.ac.kr/exchange-guide/living-in-korea/rc-resident-card" target="_blank" rel="noopener">外国人登录证（RC）</a>
+    <a href="https://sites.google.com/mju.ac.kr/exchange-guide/living-in-korea/immigration" target="_blank" rel="noopener">出入境事务</a>
+    <a href="https://sites.google.com/mju.ac.kr/exchange-guide/living-in-korea/emergency" target="_blank" rel="noopener">紧急联系</a>
+    <a href="https://sites.google.com/mju.ac.kr/exchange-guide/living-in-korea/apps" target="_blank" rel="noopener">常用 App</a>
+    <a href="https://sites.google.com/mju.ac.kr/exchange-guide/living-in-korea/transportation" target="_blank" rel="noopener">交通出行</a>
+    <a href="https://sites.google.com/mju.ac.kr/exchange-guide/living-in-korea/counseling-options-in-seoul" target="_blank" rel="noopener">首尔心理咨询资源</a>
+  </div>
+</aside>
+<main id="main">
+
+  <!-- 横幅：对应源站首页大图区域（原图由站点持有者上传） -->
+  <section class="banner" data-od-id="banner">
+  <div class="banner-media" data-banner-target>
+    <span class="media-note">原站首页横幅图位置 · 在此替换为横幅图</span>
+  </div>
+  <div class="banner-plate">
+    <div class="container banner-inner">
+      <p class="banner-kicker">明知大学 · 国际交流处</p>
+      <h1>交换生指南</h1>
+      <p class="banner-sub">你的明知大学交换生活，从这里开始</p>
+      <div class="banner-actions">
+        <a class="btn btn-primary" href="https://sites.google.com/mju.ac.kr/exchange-guide/home" target="_blank" rel="noopener">查看英文原站</a>
+        <a class="btn btn-outline" href="#contact">联系国际交流处</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- 源站首页的嵌入视频位置 -->
+  <section class="section" data-od-id="intro-video">
+    <div class="container">
+      <p class="section-en">Your Journey Begins at Myongji</p>
+      <h2>你的旅程，从明知开始</h2>
+
+      <div class="notice" style="margin-top:24px">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 8v5l3 2"></path></svg>
+        <div>
+          <h3>此位置为源站首页的迎新视频</h3>
+          <p>原站此处内嵌影片《Your Journey Begins at Myongji》。请在编辑时插入你需要的视频链接或直接上传文件，版式仍保持中央单栏、16:9 比例。</p>
+        </div>
+      </div>
+
+      <div class="media-box wide" style="margin-top:20px">
+        <span class="media-label">视频 / 大图占位 · 16:9</span>
+      </div>
+
+      <div class="edit-note">
+        <h3>待插入素材</h3>
+        <ul>
+          <li>页面顶部横幅图（源站使用校园实景照片）：<code>data-banner-target</code> 元素加上 <code>data-bg="图片地址"</code> 即可自动铺底</li>
+          <li>迎新视频：可直接将上方占位块替换为 <code>&lt;iframe&gt;</code> 或 <code>&lt;video&gt;</code></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 自然科学校区（龙仁）：对应源站 Natural Science Campus (Yongin) 区块 -->
+  <section class="section" data-od-id="yongin">
+    <div class="container">
+      <p class="section-en">Natural Science Campus (Yongin)</p>
+      <h2>自然科学校区（龙仁）</h2>
+      <p class="section-lead">国际学生支援团队办公室位于龙仁校区，负责交换生报到、生活咨询与各类支援事项。</p>
+
+      <div class="card-grid cols-2" style="margin-top:24px">
+        <article class="linkcard">
+          <div class="linkcard-mark">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V9l8-5 8 5v11"></path><path d="M9 20v-6h6v6"></path></svg>
+          </div>
+          <h3>校区地址</h3>
+          <p>Office of International Students Support Team, 116 Myongji-ro, Cheoin-gu, Yongin-si, Gyeonggi-do, 17058, KOREA</p>
+        </article>
+        <article class="linkcard">
+          <div class="linkcard-mark">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18v12H3z"></path><path d="m3 7 9 6 9-6"></path></svg>
+          </div>
+          <h3>联系邮箱</h3>
+          <p>进入韩国前与抵达后的报到、住宿与生活问题，均可用邮件与国际学生支援团队联系。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 快速访问：对应源站首页 QUICK ACCESS 区块 -->
+  <section class="section quick" data-od-id="quick-access">
+    <div class="container">
+      <div class="quick-head">
+        <h2>快速进入</h2>
+        <p class="section-en">Quick Access</p>
+      </div>
+      <div class="quick-grid">
+        <a class="quick-item" href="https://sites.google.com/mju.ac.kr/exchange-guide/academics/academic-calendar" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M8 3v4M16 3v4M3 11h18"></path></svg>
+          <span>行事历</span><small>Academic Calendar</small>
+        </a>
+        <a class="quick-item" href="https://sites.google.com/mju.ac.kr/exchange-guide/academics/course-registration" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h7a2 2 0 0 1 2 2v12H6a2 2 0 0 1-2-2z"></path><path d="M20 5h-7a2 2 0 0 0-2 2v12h7a2 2 0 0 0 2-2z"></path></svg>
+          <span>选课流程</span><small>Course Registration</small>
+        </a>
+        <a class="quick-item" href="https://sites.google.com/mju.ac.kr/exchange-guide/living-in-korea/rc-resident-card" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="2"></rect><circle cx="8.5" cy="11" r="2"></circle><path d="M5 16c.8-1.4 2-2.1 3.5-2.1S11.2 14.6 12 16M15 10h4M15 13h3"></path></svg>
+          <span>外国人登录证</span><small>Residence Card</small>
+        </a>
+        <a class="quick-item" href="https://sites.google.com/mju.ac.kr/exchange-guide/before-arrivial/nhis-national-health-insurance" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 12h-3l-2 5-3-10-2 5h-3"></path><path d="M12 21c4.5-3 7-6.5 7-10a7 7 0 0 0-14 0c0 3.5 2.5 7 7 10z"></path></svg>
+          <span>国民健康保险</span><small>NHIS</small>
+        </a>
+        <a class="quick-item" href="https://sites.google.com/mju.ac.kr/exchange-guide/academics/course-list" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"></path></svg>
+          <span>课程列表</span><small>Course List</small>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 办事入口：对应源站首页 Office of International Affairs / FACTSHEET / MSI -->
+  <section class="section" data-od-id="official-links">
+    <div class="container">
+      <p class="section-en">Office of International Affairs</p>
+      <h2>国际交流处与常用入口</h2>
+      <p class="section-lead">以下三个入口属于韩国明知大学官方系统与文件，保留原有英文名称，点击后打开官方页面。</p>
+
+      <div class="card-grid cols-3" style="margin-top:24px">
+        <a class="linkcard" href="https://international.mju.ac.kr/index.php?sMenu=kor" target="_blank" rel="noopener">
+          <div class="linkcard-mark">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3c2.5 2.6 3.8 5.7 3.8 9S14.5 18.4 12 21c-2.5-2.6-3.8-5.7-3.8-9S9.5 5.6 12 3z"></path></svg>
+          </div>
+          <h3>国际交流处官网</h3>
+          <p>部门介绍、公告与联系方式入口。</p>
+          <span class="linkcard-url">international.mju.ac.kr</span>
+        </a>
+        <a class="linkcard" href="https://drive.google.com/file/d/1i1nx1nXSyfApAdHMjk_tlvAWTA0C6XS8/view?usp=drive_link" target="_blank" rel="noopener">
+          <div class="linkcard-mark">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path><path d="M14 3v5h5M9 13h6M9 17h4"></path></svg>
+          </div>
+          <h3>校方资料表（Fact Sheet）</h3>
+          <p>交换项目的基本信息文件，由学校提供。</p>
+          <span class="linkcard-url">Google Drive · 校方文件</span>
+        </a>
+        <a class="linkcard" href="https://sso1.mju.ac.kr/login.do?redirect_uri=https://portal.mju.ac.kr/proc/Login.eps" target="_blank" rel="noopener">
+          <div class="linkcard-mark">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"></rect><path d="M8 20h8M12 17v3M8 9l3 3 5-5"></path></svg>
+          </div>
+          <h3>MSI 学生信息系统</h3>
+          <p>Myongji Student Information System，登录后可查课表与成绩。</p>
+          <span class="linkcard-url">sso1.mju.ac.kr</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 栏目总览：将源站左侧导航整理为四张入口卡 -->
+  <section class="section surface" data-od-id="sections">
+    <div class="container">
+      <p class="section-en">Browse by topic</p>
+      <h2>按栏目浏览</h2>
+      <p class="section-lead">整站分为五个栏目，点击任一栏目打开对应的英文原页。</p>
+
+      <div class="card-grid cols-2" style="margin-top:24px">
+        <article class="linkcard">
+          <h3>行前准备</h3>
+          <p>入学手续、签证核对清单、交换生签证与签证信息、住宿申请、国民健康保险。</p>
+          <p style="margin-top:14px"><a class="bl-url" href="https://sites.google.com/mju.ac.kr/exchange-guide/before-arrivial/admission" target="_blank" rel="noopener">打开「行前准备」首页 →</a></p>
+        </article>
+        <article class="linkcard">
+          <h3>学业</h3>
+          <p>行事历、MSI 课程大纲与课表、成绩与学分、26 秋季课程大纲、选课流程、课程列表、常用 App 与网站、法定假日、KLEC。</p>
+          <p style="margin-top:14px"><a class="bl-url" href="https://sites.google.com/mju.ac.kr/exchange-guide/academics/academic-calendar" target="_blank" rel="noopener">打开「学业」首页 →</a></p>
+        </article>
+        <article class="linkcard">
+          <h3>校园生活</h3>
+          <p>首尔校区、龙仁（自然科学校区）、OULAMI 同伴项目、GLI 全球领导力项目。</p>
+          <p style="margin-top:14px"><a class="bl-url" href="https://sites.google.com/mju.ac.kr/exchange-guide/campus-life/seoul-campus" target="_blank" rel="noopener">打开「校园生活」首页 →</a></p>
+        </article>
+        <article class="linkcard">
+          <h3>文化活动</h3>
+          <p>跆拳道、运动游戏日、韩语辅导等校方组织的文化体验活动。</p>
+          <p style="margin-top:14px"><a class="bl-url" href="https://sites.google.com/mju.ac.kr/exchange-guide/cultural-activities" target="_blank" rel="noopener">打开「文化活动」首页 →</a></p>
+        </article>
+        <article class="linkcard">
+          <h3>在韩生活</h3>
+          <p>兼职打工、外国人登录证、出入境事务、紧急联系、常用 App、交通出行、首尔心理咨询资源。</p>
+          <p style="margin-top:14px"><a class="bl-url" href="https://sites.google.com/mju.ac.kr/exchange-guide/living-in-korea/rc-resident-card" target="_blank" rel="noopener">打开「在韩生活」首页 →</a></p>
+        </article>
+        <article class="linkcard">
+          <h3>重要提醒</h3>
+          <p>选课、改课与退课只能在规定期间内办理，国际交流处在系统限制外无法协助；迎新、文化体验与结业式均需出席；RC 等行事历以外的安排会以邮件通知。</p>
+          <p style="margin-top:14px"><a class="bl-url" href="https://sites.google.com/mju.ac.kr/exchange-guide/academics/academic-calendar" target="_blank" rel="noopener">查看行事历页面 →</a></p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 联系方式：两校区地址（与源站页脚一致） -->
+  <section class="section" id="contact" data-od-id="contact">
+    <div class="container">
+      <p class="section-en">Contact</p>
+      <h2>两校区联系方式</h2>
+      <div class="campus-grid" style="margin-top:24px">
+        <article class="campus-card">
+          <div class="media-box"><span class="media-label">首尔校区图占位</span></div>
+          <div class="campus-body">
+            <h3>SEOUL CAMPUS</h3>
+            <p>Office of International Affairs, 34 Geobukgol-ro, Seodaemun-gu, Seoul, 03674, KOREA</p>
+          </div>
+        </article>
+        <article class="campus-card">
+          <div class="media-box"><span class="media-label">龙仁校区图占位</span></div>
+          <div class="campus-body">
+            <h3>YONGIN CAMPUS</h3>
+            <p>Office of International Students Support Team, 116 Myongji-ro, Cheoin-gu, Yongin-si, Gyeonggi-do, 17058, KOREA</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+</main>
+<footer class="sitefoot" data-od-id="footer">
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <p class="foot-label">SEOUL CAMPUS</p>
+        <p>Office of International Affairs, 34 Geobukgol-ro, Seodaemun-gu, Seoul, 03674, KOREA</p>
+        <p class="foot-mail">E-mail: <a href="mailto:mju_inbound@mju.ac.kr">mju_inbound@mju.ac.kr</a></p>
+      </div>
+      <div>
+        <p class="foot-label">YONGIN CAMPUS</p>
+        <p>Office of International Students Support Team, 116 Myongji-ro, Cheoin-gu, Yongin-si, Gyeonggi-do, 17058, KOREA</p>
+      </div>
+      <div>
+        <p class="foot-label">本页说明</p>
+        <p>本页为英文原站的中文版页面骨架（仅首页），版式与配色对齐原站；栏目内容仍由你自行填写，站内链接指向原站英文页。</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>Exchange Student Guide · 中文版</span>
+      <a href="https://sites.google.com/mju.ac.kr/exchange-guide/home" target="_blank" rel="noopener">英文原站首页</a>
+    </div>
+  </div>
+</footer>
+
+<!-- 站内搜索面板（由顶部“搜索此站点”按钮打开） -->
+<div class="searchwrap" data-search-panel hidden>
+  <div class="searchwrap-inner">
+    <form class="searchform" data-search-form role="search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M16.5 16.5 21 21"></path></svg>
+      <label class="visually-hidden" for="siteSearch">搜索本站页面（英文原站页名）</label>
+      <input id="siteSearch" class="searchinput" type="search" name="q" placeholder="输入页面名称，例如 Visa、Housing、Calendar" data-search-input autocomplete="off" />
+      <button class="btn btn-primary" type="submit">搜索</button>
+      <button class="searchcancel" type="button" data-search-close>关闭</button>
+    </form>
+    <div class="searchresults" data-search-results>
+      <p class="searchhint">输入关键字后按回车，结果会列在这里。</p>
+    </div>
+  </div>
+</div>
+
+<!-- 嵌入文件面板（由顶部“嵌入文件”按钮打开） -->
+<div class="searchwrap" data-files-panel hidden>
+  <div class="searchwrap-inner">
+    <div class="filelist">
+      <h2>嵌入文件</h2>
+      <ul>
+        <li><a href="https://drive.google.com/file/d/1i1nx1nXSyfApAdHMjk_tlvAWTA0C6XS8/view?usp=drive_link" target="_blank" rel="noopener">FACTSHEET（校方资料表）</a></li>
+        <li><span>Your Journey Begins at Myongji.mp4（迎新影片，源站首页内嵌）</span></li>
+        <li><span>页面横幅照片（源站首页顶部使用）</span></li>
+      </ul>
+      <p class="searchhint">此处仅列出源站使用的内嵌文件；实际文件由站点持有者在后台维护。</p>
+      <button class="btn btn-outline" type="button" data-files-close>关闭</button>
+    </div>
+  </div>
+</div>
+
+<button class="totop" type="button" data-totop hidden>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"></path><path d="m5 12 7-7 7 7"></path></svg>
+  回到顶部
+</button>
+
+<p class="edit-note" data-od-id="handover" style="max-width:1120px;margin:32px auto 64px">
+  <strong>给编辑者的交接说明：</strong>本文件为中文版首页的可编辑骨架，已按英文原站的顶栏、大图横幅、区块层级、快速访问网格与页脚两校区地址还原，并适配手机端。需要你自己补充的内容仅为：页面横幅图、迎新视频与各栏目正文；文字直接在本文件中替换即可，样式无需改动。
+</p>
+
+<script>
+(function () {
+  'use strict';
+
+  var drawer = document.querySelector('[data-drawer]');
+  var scrim = document.querySelector('[data-drawer-scrim]');
+  var openBtn = document.querySelector('[data-nav-open]');
+
+  function setDrawer(open) {
+    if (!drawer || !scrim) return;
+    drawer.classList.toggle('is-open', open);
+    drawer.setAttribute('aria-hidden', open ? 'false' : 'true');
+    scrim.hidden = !open;
+    document.body.classList.toggle('no-scroll', open);
+    if (openBtn) openBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (open) {
+      var first = drawer.querySelector('a, button');
+      if (first) first.focus();
+    } else if (openBtn) {
+      openBtn.focus();
+    }
+  }
+
+  if (openBtn) {
+    openBtn.addEventListener('click', function () { setDrawer(true); });
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('[data-nav-close]'), function (el) {
+    el.addEventListener('click', function () { setDrawer(false); });
+  });
+  if (scrim) scrim.addEventListener('click', function () { setDrawer(false); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      setDrawer(false);
+      setPanel(searchPanel, false);
+      setPanel(filesPanel, false);
+    }
+  });
+
+  Array.prototype.forEach.call(document.querySelectorAll('.drawer-group'), function (btn) {
+    btn.addEventListener('click', function () {
+      var id = btn.getAttribute('aria-controls');
+      var sub = id ? document.getElementById(id) : null;
+      var open = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+      if (sub) sub.classList.toggle('is-open', !open);
+    });
+  });
+
+  /* 站内搜索：索引栏目的中文名、英文原站页名与网址 */
+  var INDEX = [];
+  Array.prototype.forEach.call(document.querySelectorAll('nav.mainnav a, .drawer a'), function (a) {
+    var href = a.getAttribute('href') || '';
+    if (href.indexOf('http') !== 0) return;
+    var zh = (a.textContent || '').replace(/\s+/g, ' ').trim();
+    if (!zh) return;
+    var en = href.split('/').pop().replace(/-/g, ' ');
+    INDEX.push({ zh: zh, en: en, href: href });
+  });
+
+  var searchPanel = document.querySelector('[data-search-panel]');
+  var filesPanel = document.querySelector('[data-files-panel]');
+
+  function setPanel(panel, open) {
+    if (!panel) return;
+    panel.hidden = !open;
+  }
+
+  var searchBtn = document.querySelector('[data-search-btn]');
+  var searchClose = document.querySelector('[data-search-close]');
+  var searchInput = document.querySelector('[data-search-input]');
+  var searchForm = document.querySelector('[data-search-form]');
+  var searchResults = document.querySelector('[data-search-results]');
+  var filesBtn = document.querySelector('[data-files-btn]');
+  var filesClose = document.querySelector('[data-files-close]');
+
+  if (searchBtn) {
+    searchBtn.addEventListener('click', function () {
+      var willOpen = searchPanel ? searchPanel.hidden : false;
+      setPanel(filesPanel, false);
+      setPanel(searchPanel, willOpen);
+      if (willOpen && searchInput) searchInput.focus();
+    });
+  }
+  if (searchClose) {
+    searchClose.addEventListener('click', function () {
+      setPanel(searchPanel, false);
+      if (searchBtn) searchBtn.focus();
+    });
+  }
+  if (filesBtn) {
+    filesBtn.addEventListener('click', function () {
+      var willOpen = filesPanel ? filesPanel.hidden : false;
+      setPanel(searchPanel, false);
+      setPanel(filesPanel, willOpen);
+      var hint = document.querySelector('[data-tools-hint]');
+      if (hint) hint.textContent = '嵌入文件面板已' + (willOpen ? '打开' : '关闭');
+    });
+  }
+  if (filesClose) {
+    filesClose.addEventListener('click', function () {
+      setPanel(filesPanel, false);
+      if (filesBtn) filesBtn.focus();
+    });
+  }
+
+  function renderResults(q) {
+    if (!searchResults) return;
+    var needle = q.trim().toLowerCase();
+    searchResults.textContent = '';
+    if (!needle) {
+      var p0 = document.createElement('p');
+      p0.className = 'searchhint';
+      p0.textContent = '输入关键字后按回车，结果会列在这里。';
+      searchResults.appendChild(p0);
+      return;
+    }
+    var hits = INDEX.filter(function (item) {
+      return item.zh.toLowerCase().indexOf(needle) !== -1 || item.en.toLowerCase().indexOf(needle) !== -1;
+    });
+    if (!hits.length) {
+      var p1 = document.createElement('p');
+      p1.className = 'searchhint';
+      p1.textContent = '没有找到“' + q + '”对应的页面，试试 Calendar、Housing、Visa 等英文关键字。';
+      searchResults.appendChild(p1);
+      return;
+    }
+    var list = document.createElement('ul');
+    list.className = 'searchlist';
+    hits.slice(0, 12).forEach(function (item) {
+      var li = document.createElement('li');
+      var a = document.createElement('a');
+      a.href = item.href;
+      a.target = '_blank';
+      a.rel = 'noopener';
+      a.textContent = item.zh;
+      var s = document.createElement('span');
+      s.className = 'searchmeta';
+      s.textContent = item.en;
+      li.appendChild(a);
+      li.appendChild(s);
+      list.appendChild(li);
+    });
+    searchResults.appendChild(list);
+  }
+
+  if (searchForm) {
+    searchForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      renderResults(searchInput ? searchInput.value : '');
+    });
+  }
+  if (searchInput) {
+    searchInput.addEventListener('input', function () {
+      if (!searchInput.value) renderResults('');
+    });
+  }
+
+  var toTop = document.querySelector('[data-totop]');
+  if (toTop) {
+    toTop.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    window.addEventListener('scroll', function () {
+      toTop.hidden = window.scrollY < 480;
+    }, { passive: true });
+  }
+
+  /* 横幅背景：若编辑者为横幅容器加上 data-bg，则自动铺底 */
+  var banner = document.querySelector('[data-banner-target]');
+  if (banner) {
+    var src = banner.getAttribute('data-bg');
+    if (src) banner.style.backgroundImage = 'url("' + src + '")';
+  }
+})();
+</script>
+</body>
+</html>
